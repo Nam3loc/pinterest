@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import './Profile.module.css';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.css';
+import Pin from '../../components/Pin';
 
 // Material UI Imports
 import ProfilePictureLogo from '../../components/ProfilePictureLogo';
@@ -37,6 +38,7 @@ export default function Home() {
                     <button>Boards</button>
                 </Link>
             </div>
+            <Pin />
         </div>
         
     )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from './utilities/users-service';
-import AuthPage from './pages/AuthPage';
+import AuthPage from './pages/AuthPage/AuthPage';
 import NewPin from './pages/NewPin';
 import Board from './pages/Board';
 import Home from './pages/Home';

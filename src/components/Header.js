@@ -20,6 +20,11 @@ export default function Header(props) {
         console.log('this is the input:', input);
     }
 
+    const dropdown = (e) => {
+        e.preventDefault();
+
+    }
+
     return (
         <Wrapper>
             <LogoWrapper>
@@ -29,11 +34,11 @@ export default function Header(props) {
             </LogoWrapper>
 
             <HomepageButton>
-                <a href='/'>Homepage</a>
+                <a href='/pins'>Homepage</a>
             </HomepageButton>
 
             <FollowingButton>
-                <a href='/'>Following</a>
+                <a href='/pins/new'>Create Pin</a>
             </FollowingButton>
 
             <SearchWrapper>

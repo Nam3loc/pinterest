@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from './utilities/users-service';
 import AuthPage from './pages/AuthPage/AuthPage';
@@ -6,9 +6,11 @@ import NewPin from './pages/NewPin';
 import Board from './pages/Board';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import unsplash from './unsplashAPI/unsplash';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+
   return (
     // <main className={styles.App}>
     <main>

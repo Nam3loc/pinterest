@@ -1,3 +1,6 @@
+// Imports
+import { Link } from 'react-router-dom';
+
 // Material UI Imports
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import { IconButton } from '@mui/material';
@@ -20,11 +23,6 @@ export default function Header(props) {
         console.log('this is the input:', input);
     }
 
-    const dropdown = (e) => {
-        e.preventDefault();
-
-    }
-
     return (
         <Wrapper>
             <LogoWrapper>
@@ -34,7 +32,7 @@ export default function Header(props) {
             </LogoWrapper>
 
             <HomepageButton>
-                <a href='/pins'>Homepage</a>
+                <a href='/pins'>Home</a>
             </HomepageButton>
 
             <FollowingButton>
@@ -57,15 +55,9 @@ export default function Header(props) {
 
             <IconsWrapper>
                 <IconButton>
-                    <NotificationsIcon />
-                </IconButton>
-
-                <IconButton>
-                    <TextsmsIcon />
-                </IconButton>
-
-                <IconButton>
-                    <AccountCircleIcon />
+                    <Link to='/profile'>
+                        <AccountCircleIcon />
+                    </Link>
                 </IconButton>
 
                 <IconButton>
@@ -129,6 +121,7 @@ const FollowingButton = styled(HomeButtons)`
 
 const SearchWrapper = styled.div`
     flex: 1;
+    padding-right: 10px;
 `
 
 const SearchBarWrapper = styled.div`

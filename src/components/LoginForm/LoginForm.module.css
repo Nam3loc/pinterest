@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

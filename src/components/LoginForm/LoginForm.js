@@ -1,5 +1,4 @@
-// LoginForm.jsx
-
+// Imports
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 import styles from './LoginForm.module.css';
@@ -31,19 +30,17 @@ async function handleSubmit(evt) {
 }
 
 return (
-  <div className={styles.LoginForm}>
+  <div>
     <div className="form-container" onSubmit={handleSubmit}>
-      <form className='form' autoComplete="off" >
+      <form className={styles.form} autoComplete="off" >
         <label>Email</label>
-        <br />
-        <input className='inputBox' type="text" name="email" placeholder="Email" value={credentials.email} onChange={handleChange} required />
+        <input className={styles.inputBox} type="text" name="email" placeholder="Email" value={credentials.email} onChange={handleChange} required />
         <br />
         <label>Password</label>
+        <input className={styles.inputBox} type="password" name="password" placeholder="Password" value={credentials.password} onChange={handleChange} required />
         <br />
-        <input className='inputBox' type="password" name="password" placeholder="Password" value={credentials.password} onChange={handleChange} required />
         <br />
-        <br />
-        <button className='submit' type="submit">LOG IN</button>
+        <button className={styles.submit} type="submit">LOG IN</button>
       </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>

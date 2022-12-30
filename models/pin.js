@@ -1,0 +1,29 @@
+//////////////////////////////////////////////
+// Import Dependencies
+//////////////////////////////////////////////
+const mongoose = require("./connection");
+
+////////////////////////////////////////////////
+// Define Model
+////////////////////////////////////////////////
+// pull schema and model from mongoose
+const  { Schema, model } = mongoose;
+
+// make movie schema
+const pinSchema = new mongoose.Schema({
+    picture: {type: String, required: true},
+    title: {type: String, require: true},
+    description: String,
+    link: String
+},
+{
+    timestamps: true
+})
+  
+// make movie model
+const Pin = mongoose.model('Pin', pinSchema);
+
+///////////////////////////////////////////////////
+// Export Model
+///////////////////////////////////////////////////
+module.exports = Pin;

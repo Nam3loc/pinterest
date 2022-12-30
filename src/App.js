@@ -6,9 +6,9 @@ import NewPin from './pages/NewPin';
 import Board from './pages/Board';
 import Home from './pages/Home';
 import Profile from './pages/Profile/Profile';
-import unsplash from './unsplashAPI/unsplash';
 import Created from './pages/Created';
-import EditProfile from './pages/EditProfile';
+import EditProfile from './pages/EditProfile/EditProfile';
+import ShowPin from './pages/ShowPin/ShowPin';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -21,6 +21,7 @@ export default function App() {
           <Routes>
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/pins" element={<Home user={user} setUser={setUser} />} />
+            <Route path="/pins/:id" element={<ShowPin user={user} setUser={setUser} />} />
             <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
             <Route path="/profile/edit" element={<EditProfile user={user} setUser={setUser} />} />
             <Route path="/pins/new" element={<NewPin user={user} setUser={setUser} />} />

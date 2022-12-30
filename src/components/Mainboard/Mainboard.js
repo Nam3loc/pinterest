@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Pin from "../Pin";
 import './Mainboard.module.css';
+import { Link } from "react-router-dom";
 
 export default function MainBoard(props) {
     let { pins } = props;
@@ -10,7 +11,9 @@ export default function MainBoard(props) {
             <Container className="mainboard_container">
                 {pins.map((pin, idx) => {
                     let { urls } = pin;
-                    return <Pin key={idx} urls={urls} />
+                    <Link to='/pins/:id'>
+                        <Pin key={idx} urls={urls} />
+                    </Link>
                 })}
             </Container>
         </Wrapper>

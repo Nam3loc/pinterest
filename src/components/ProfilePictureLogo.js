@@ -2,7 +2,7 @@
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import styled from '@emotion/styled';
 
-export default function Logo() {
+export default function ProfilePictureIcon() {
     return (
         <Wrapper>
             <LogoWrapper>
@@ -24,7 +24,6 @@ const LogoWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
     .MuiSvgIcon-root {
         font-size: 15vw;
         cursor: pointer;

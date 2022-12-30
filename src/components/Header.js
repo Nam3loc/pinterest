@@ -11,6 +11,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import styled from '@emotion/styled';
 
+
 // State Imports
 import { useState } from 'react';
 
@@ -21,6 +22,10 @@ export default function Header(props) {
         e.preventDefault();
         props.onSubmit(input);
         console.log('this is the input:', input);
+    }
+
+    const onSelect = () => {
+        // Somehow bring dropdown compnonet into play
     }
 
     return (
@@ -97,7 +102,6 @@ const HomeButtons = styled.div` // dry code that is passed in as a parameter
 
 const HomepageButton = styled(HomeButtons)` // parameter passed in
     background-color: rgb(17, 17, 17);
-
     a {
         text-decoration: none;
         color: white;
@@ -107,13 +111,11 @@ const HomepageButton = styled(HomeButtons)` // parameter passed in
 
 const FollowingButton = styled(HomeButtons)`
     background-color: white;
-
     a {
         text-decoration: none;
         color: black;
         font-weight: 700;
     }
-
     :hover {
         background-color: #e1e1e1;
     }
@@ -132,12 +134,10 @@ const SearchBarWrapper = styled.div`
     border-radius: 50px;
     border: none;
     padding-left: 10px;
-
     form {
         display: flex;
         flex: 1;
     }
-
     form > input {
         background-color: transparent;
         border: none;
@@ -145,15 +145,12 @@ const SearchBarWrapper = styled.div`
         margin-left: 5px;
         font-size: 16px;
     }
-
     form > button {
         display: none;
     }
-
     input:focus { // gets rid of the outline
         outline: none;
     }
-
     input:active { // gets rid of the outline
         outline: none;
     }

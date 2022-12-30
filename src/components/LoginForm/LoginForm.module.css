@@ -1,17 +1,25 @@
 .form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .inputBox {
     display: flex;
-    justify-content: baseline;
+    justify-content: center;
     align-items: center;
+
+    padding: 12px;
+    border-radius: 15px;
+    width: 30vw;
+    font-size: 14px;
 }
 
 .submit {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 32vw;
+    margin: 0px;
 }

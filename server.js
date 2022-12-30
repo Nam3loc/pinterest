@@ -20,6 +20,7 @@ app.use(require('./config/checkToken'));
 // Put api routes here, before the "catch all" route
 // const usersRouter = require('./routes/api/users'); // Can use less code and put it in like below;
 app.use('/api/users', /*usersRouter*/ require('./routes/api/users'));
+app.use('/api/pins', /*usersRouter*/ require('./routes/api/users'));
 
 // Put API routes here, before the "catch all" route
 
@@ -31,16 +32,12 @@ app.get('/*', (req, res) => {
 
 /* ================================================================== \\
     Now the "catch all" route will serve the index.html whenever:
-
     A user types a path into the address bar and presses enter.
     The user refreshes the browser.
     An "external" link in an email, included on another web page, etc. to the MERN-Stack app is clicked.
     For example, if we slack the following link to a friend: https://sei-cafe.herokuapp.com/orders/new. The friend clicks on it, initiating an HTTP request to our server.
-
     However, the /orders/newpart of the URL is supposed to be for the client router - not the server! But there it is, and the server has to deal with it...
-
     The server deals with it by, thanks to the "catch all" route, sending back index.html - which is what we want.
-
     After index.html loads in the browser, the React app's client-side routing will render components based upon the /orders/newpath in the address bar.
 // ================================================================== */
 

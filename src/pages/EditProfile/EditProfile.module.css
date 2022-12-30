@@ -1,0 +1,64 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titles {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.picture {
+    display: flex;
+}
+
+.change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px;
+    border-radius: 15px;
+    width: 10vw;
+    font-size: 14px;
+}
+
+.nameInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputName {
+    padding: 12px;
+    border-radius: 15px;
+    width: 15vw;
+    font-size: 14px;
+}
+
+.aboutInput {
+    padding: 12px;
+    border-radius: 15px;
+    width: 30vw;
+    height: 20vh;
+    font-size: 14px;
+}
+
+.inputbox {
+    padding: 12px;
+    border-radius: 15px;
+    width: 30vw;
+    font-size: 14px;
+}
+
+.footerButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px;
+    border-radius: 15px;
+    width: 10vw;
+    font-size: 14px;
+}

@@ -8,7 +8,7 @@ import Pin from '../../components/Pin';
 // Material UI Imports
 import ProfilePictureLogo from '../../components/ProfilePictureLogo';
 
-export default function Home() {
+export default function Profile() {
     return (
         <div>
             <Header />

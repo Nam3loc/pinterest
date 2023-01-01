@@ -1,21 +1,26 @@
 import styled from '@emotion/styled';
 // import styles from './Pin.module.css';
 
-export default function Pin(props) {
-    let {urls} = props;
+export default function Pin({picture, title, description, link}) {
+    // let {urls} = props;
+    // const {picture, title, description, link} = this.props.pin;
 
     return (
-        // <main className={styles.Pin}>
-            // <div className="wrapper">
-                // <div className="container">
             <Wrapper>
                 <Container>
-                    <img src={urls?.regular} alt='pin' />
+                    <img src={`${picture}`} alt={`${title}`} />
+                    <h2>{`Title: ${title}`}</h2>
+                    <p>{`Description: ${description}`}</p>
+                    <p>{`Link: ${link}`}</p>
                 </Container>
             </Wrapper>
-                // </div>
-            // </div>
-        // </main>
+
+        // <div>
+        //     <img>src={`${picture}`} alt={`${title}`}</img>
+        //     <h2>{`Title: ${title}`}</h2>
+        //     <p>{`Description: ${description}`}</p>
+        //     <p>{`Link: ${link}`}</p>
+        // </div>
     )
 }
 

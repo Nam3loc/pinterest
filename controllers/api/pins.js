@@ -1,11 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const Pin = require("../models/pins");
+const Pin = require("../../models/pin");
 
 module.exports = {
   index,
   deletePin,
-  updatePin,
+  update,
   create,
   edit,
   show
@@ -15,74 +13,66 @@ module.exports = {
 // Index, New, Delete, Update, Create, Edit, Show
 
 // INDEX
-router.get('/', (req, res) => {
-    Pin.find({}, (err, allPins) => {
-        if(!err) {
-            res.status(200).render('pins/Index', {
-                pins: allPins
-            })
-        } else {
-            res.status(400).send(err)
-        }
-    })
-}) 
-
-// NEW
-router.get('/new', (req, res) => {
-    res.render('pins/New')
-})
+async function index(req, res) {
+    try {
+      const allPins = await Pin.find({});
+      res.status(200).render('pins/Index', { pins: allPins });
+    } catch (err) {
+      res.status(400).send(err);
+    }
+};
 
 // DELETE
-router.delete('/:id', (req, res) => {
-    Pin.findByIdAndDelete(req.params.id, (err, data) => {
-        res.redirect('/pins')
-    })
-})
+
+async function deletePin(req, res) {
+    try {
+      await Pin.findByIdAndDelete(req.params.id);
+      res.redirect('/pins');
+    } catch (err) {
+      res.status(400).send(err);
+    }
+};
 
 // UPDATE
-router.put('/:id', (req, res) => {
-    Pin.findByIdAndUpdate(req.params.params.id, req.body, (err, updatedPin) => {
-        if(!err) {
-            res.status(200).redirect(`/pins/${res.params.id}`)
-        } else {
-            res.status(400).send(err)
-        }
-    })
-})
+
+async function update(req, res) {
+    try {
+        const updatedPin = await Pin.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).redirect(`/pins/${res.params.id}`)
+    } catch (err) {
+        res.status(400).send(err)
+    }
+};
 
 // CREATE
-router.post('/', (req, res) => {
-    Pin.create(req.body, (err, createdFruit) => {
-        if(!err) {
-            res.status(200).redirect('/pins')
-        } else {
-            res.status(400).send(err)
-        }
-    })
-})
+
+async function create(req, res) {
+    try{
+        const createPin = await Pin.create(req.body);
+        res.status(200).redirect('/pins')
+    } catch(err) {
+        res.status(400).send(err)
+    }
+};
 
 // EDIT
-router.get('/:id/edit', (req, res) => {
-    Pin.findById(req.params.id, (err, foundPin) => {
-        if(!err) {
-            res.status(200).render('pins/Edit', {pin: foundPin})
-        } else {
-            res.status(400).send({ msg: err.message })
-        }
-    })
-})
+
+async function edit(req, res) {
+    try {
+        const foundPin = await Pin.findById(req.params.id);
+        res.status(200).render('pins/Edit', {pin: foundPin})
+    }catch (err) {
+        res.status(400).send({ msg: err.message })
+    }
+};
 
 // SHOW
-router.get('/:id', (req, res) => {
-    Pin.findById(req.params.id, (err, foundPin) => {
-        if(!err) {
-            res.status(200).render('pins/Show', {
-                pin: foundPin
-            })
-        } else {
-            res.status(400).send(err)
-        }
-    })
-})
 
-module.exports = router;
+async function show(req, res) {
+    try {
+        const foundPin = await Pin.findById(req.params.id);
+        res.status(200).render('pins/Show', {pin: foundPin})
+    } catch(err) {
+        res.status(400).send(err)
+    }
+};

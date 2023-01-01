@@ -5,6 +5,8 @@ import styles from './ShowPin.module.css';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 export default function ShowPin() {
+    const {picture, title, description, link} = this.props.pin;
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -18,10 +20,10 @@ export default function ShowPin() {
             </div>
 
             <div className={styles}>
-                {/* <input type='text'>{imgURL}</input>
-                <input type='text'>{title}</input>
-                <input type='text'>{description}</input>
-                <input type='text'>{link}</input> */}
+                <img>src={`${picture}`} alt={`${title}`}</img>
+                <h2>{`Title: ${title}`}</h2>
+                <p>{`Description: ${description}`}</p>
+                <p>{`Link: ${link}`}</p>
             </div>
         </div>
     )

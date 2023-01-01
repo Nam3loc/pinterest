@@ -20,7 +20,7 @@ app.use(require('./config/checkToken'));
 // Put api routes here, before the "catch all" route
 // const usersRouter = require('./routes/api/users'); // Can use less code and put it in like below;
 app.use('/api/users', /*usersRouter*/ require('./routes/api/users'));
-app.use('/api/pins', /*usersRouter*/ require('./routes/api/users'));
+app.use('/api/pins', /*pinsRouter*/ require('./routes/api/pins'));
 
 // Put API routes here, before the "catch all" route
 

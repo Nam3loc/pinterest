@@ -1,42 +1,18 @@
 // Imports
 import styles from './CreatePin.module.css';
-import axios from 'axios';
-import React from 'react';
-import { useState } from 'react';
 
 // Material UI Imports
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { IconButton } from '@mui/material';
 
 export default function CreatePin() {
-    // const [selectedFile, setSelectedFile] = useState(null);
-
-    // const fileSelectedHandler = (evt) => {
-    //     setSelectedFile(
-    //         evt.target.files[0]
-    //     )
+    // const uploadPin = () => {
+        
     // }
-
-    // const fileUploadHandler = (evt) => {
-    //     const fd = new FormData()
-    //     fd.append('image', selectedFile, selectedFile.name)
-    //     axios.post(process.env.DATABASE_URL, fd, {
-    //             onUploadProgress: progessEvent => {
-    //             console.log('Upload Progress' + Math.round(progessEvent.loaded / progessEvent.total * 100) + '%')
-    //         }
-    //     })
-    //         .then(res => {
-    //             console.log(res);
-    //         })
-    // }
-
-    const uploadPin = () => {
-        <Link to='/pins' />
-    }
 
     return (
         <div className={styles.pageWrapper}>
-            <div className={styles.wrapper}>
+            <form className={styles.wrapper} action='/pins' method='POST'>
                 <div className={styles.header}>
                     <div className={styles.moreIcon}>
                         <IconButton>
@@ -57,15 +33,6 @@ export default function CreatePin() {
                 <div className={styles.infoWrapper}>
                     <div className={styles.picInput}>
                         <input className={styles.link} type='text' placeholder='image url' />
-                        {/* <input 
-                            // style={{display: 'none'}} 
-                            type='file' 
-                            onChange={fileSelectedHandler}
-                            // ref={fileInput => this.fileInput = fileInput}
-                            />
-                        <button onClick={() => this.fileInput.click()}>Pick File</button> */}
-                        {/* <button onClick={fileUploadHandler}>Upload</button> */}
-                        <button className={styles.saveButton}>Save from site</button>
                     </div>
 
                     <div className={styles.descriptionWrapper}>
@@ -82,7 +49,11 @@ export default function CreatePin() {
                         <button className={styles.hide} type='submit'>Submit</button>
                     </div>
                 </div>
-            </div>
+
+                <div className={styles.savePin}>
+                    <input className={styles.saveButton} type='submit' value='Create Pin' />
+                </div>
+            </form>
         </div>
     )
 }

@@ -4,14 +4,24 @@ import './Profile.module.css';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.css';
 import Pin from '../../components/Pin';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import * as userService from '../../utilities/users-service';
 
 // Material UI Imports
 import ProfilePictureLogo from '../../components/ProfilePictureLogo';
 
-export default function Profile() {
+export default function Profile({ user, setUser }) {
+    function handleLogout () {
+        // Delegate to the users-service
+        userService.logOut()
+        setUser(null)
+    }
+
     return (
         <div>
             <Header />
+            {/* <Logout user={user} setUser={setUser} /> */}
+            <Link to="" onClick={handleLogout}>Log Out</Link>
             <ProfilePictureLogo />
             <h2>Insert Name Here</h2>
             <p>Insert @username</p>

@@ -14,6 +14,7 @@ import styled from '@emotion/styled';
 
 // State Imports
 import { useState } from 'react';
+import Logout from './UserLogOut/UserLogOut';
 
 export default function Header(props) {
     const [input, setInput] = useState(null);
@@ -24,9 +25,9 @@ export default function Header(props) {
         console.log('this is the input:', input);
     }
 
-    const onSelect = () => {
-        // Somehow bring dropdown compnonet into play
-    }
+    // const onSelect = () => {
+    //     <Logout user={user} setUser={setUser} />
+    // }
 
     return (
         <Wrapper>

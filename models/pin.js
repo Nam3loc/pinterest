@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 // Define Model
 ////////////////////////////////////////////////
 // pull schema and model from mongoose
-const  { Schema, model } = mongoose;
+const Schema = require('mongoose').Schema;
 
 // make movie schema
 const pinSchema = new mongoose.Schema({

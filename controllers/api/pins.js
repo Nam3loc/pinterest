@@ -2,8 +2,9 @@ const Pin = require("../../models/pin");
 
 module.exports = {
   index,
+//   newPin,
   deletePin,
-  update,
+//   update,
   create,
   edit,
   show
@@ -15,12 +16,23 @@ module.exports = {
 // INDEX
 async function index(req, res) {
     try {
-      const allPins = await Pin.find({});
-      res.status(200).render('pins/Index', { pins: allPins });
+      const homepage = await Pin.find({});
+      res.status(200).json(homepage);
     } catch (err) {
       res.status(400).send(err);
     }
 };
+
+// NEW
+
+// function newPin(req, res) {
+//     try {
+//         res.render('New');
+//     } catch(err) {
+//         console.error(err);
+//         res.status(500).send('An error occurred');
+//     }
+// }
 
 // DELETE
 
@@ -35,22 +47,24 @@ async function deletePin(req, res) {
 
 // UPDATE
 
-async function update(req, res) {
-    try {
-        const updatedPin = await Pin.findByIdAndUpdate(req.params.id, req.body);
-        res.status(200).redirect(`/pins/${res.params.id}`)
-    } catch (err) {
-        res.status(400).send(err)
-    }
-};
+// async function update(req, res) {
+//     try {
+//         const updatedPin = await Pin.findByIdAndUpdate(req.params.id, req.body);
+//         res.status(200).json(updatedPin)
+//     } catch (err) {
+//         res.status(400).send(err)
+//     }
+// };
 
 // CREATE
 
 async function create(req, res) {
     try{
         const createPin = await Pin.create(req.body);
-        res.status(200).redirect('/pins')
+        console.log("create is working in pinCtrl");
+        res.status(200).json(createPin)
     } catch(err) {
+        console.log("create is not working in pinCtrl");
         res.status(400).send(err)
     }
 };
@@ -60,7 +74,7 @@ async function create(req, res) {
 async function edit(req, res) {
     try {
         const foundPin = await Pin.findById(req.params.id);
-        res.status(200).render('pins/Edit', {pin: foundPin})
+        res.status(200).json(foundPin)
     }catch (err) {
         res.status(400).send({ msg: err.message })
     }
@@ -71,7 +85,7 @@ async function edit(req, res) {
 async function show(req, res) {
     try {
         const foundPin = await Pin.findById(req.params.id);
-        res.status(200).render('pins/Show', {pin: foundPin})
+        res.status(200).json(foundPin)
     } catch(err) {
         res.status(400).send(err)
     }

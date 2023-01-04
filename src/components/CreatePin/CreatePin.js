@@ -1,18 +1,51 @@
 // Imports
 import styles from './CreatePin.module.css';
+import { Component } from 'react';
+import { createPin } from '../../utilities/pin-api';
+import { useState } from 'react';
 
 // Material UI Imports
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { IconButton } from '@mui/material';
 
 export default function CreatePin() {
-    // const uploadPin = () => {
-        
-    // }
+    const [pin, setPin] = useState({
+        image: "",
+        title: "",
+        description: "",
+        link: ""
+    });
+    const [error, setError] = useState(false);
+    const [form, setForm] = useState('');
+
+    const handleChange = (evt) => {
+        if (evt.target.value === "on") {
+            evt.target.value = true
+        } else if (evt.target.value === "false") {
+            evt.target.value = false
+        }
+
+        setForm({
+            ...form,
+            [evt.target.name]: evt.target.value
+        })
+    }
+
+    const handleSubmit = async (evt) => {
+       evt.preventDefault()
+       try {
+        console.log('Handle submit worked');
+         const newPin = await createPin(form);
+         setPin(newPin);
+         console.log('This is the newPin:', newPin);
+       } catch {
+         setError({ error: "Pin not created"});
+       }
+    }
 
     return (
         <div className={styles.pageWrapper}>
-            <form className={styles.wrapper} action='/pins' method='POST'>
+            <form className={styles.wrapper} action='/pins' method='POST' onSubmit={handleSubmit}>
                 <div className={styles.header}>
                     <div className={styles.moreIcon}>
                         <IconButton>
@@ -51,7 +84,7 @@ export default function CreatePin() {
                 </div>
 
                 <div className={styles.savePin}>
-                    <input className={styles.saveButton} type='submit' value='Create Pin' />
+                    <input className={styles.saveButton} type='submit' value='Create Pin' onChange={handleChange} />
                 </div>
             </form>
         </div>

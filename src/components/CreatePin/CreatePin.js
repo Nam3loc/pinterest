@@ -3,12 +3,15 @@ import styles from './CreatePin.module.css';
 import { Component } from 'react';
 import { createPin } from '../../utilities/pin-api';
 import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 // Material UI Imports
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { IconButton } from '@mui/material';
 
 export default function CreatePin() {
+    const navigate = useNavigate();
+
     const [pin, setPin] = useState({
         picture: "",
         title: "",
@@ -41,6 +44,8 @@ export default function CreatePin() {
        } catch {
          setError({ error: "Pin not created"});
        }
+
+       navigate('/pins')
     }
 
     return (

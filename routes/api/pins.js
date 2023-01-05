@@ -8,8 +8,8 @@ router.get('/', pinsControllers.index);
 router.delete('/:id', pinsControllers.deletePin);
 // POST /api/pins
 router.post('/', pinsControllers.create);
-// GET /api/pins/:id/edit
-router.get('/:id/edit', pinsControllers.edit);
+// PUT /api/pins/:id/edit
+router.put('/:id', pinsControllers.edit);
 // GET /api/pins/:id
 router.get('/:id', pinsControllers.show);
 

@@ -25,38 +25,17 @@ async function index(req, res) {
     }
 };
 
-// NEW
-
-// function newPin(req, res) {
-//     try {
-//         res.render('New');
-//     } catch(err) {
-//         console.error(err);
-//         res.status(500).send('An error occurred');
-//     }
-// }
-
 // DELETE
 
 async function deletePin(req, res) {
     try {
         await Pin.findByIdAndDelete(req.params.id);
-        res.redirect('/pins');
+        res.status(204).send();
     } catch (err) {
-        res.status(400).send(err);
+        console.error(err);
+        res.status(500).json({ error: 'Failed to delete pin' });
     }
-};
-
-// UPDATE
-
-// async function update(req, res) {
-//     try {
-//         const updatedPin = await Pin.findByIdAndUpdate(req.params.id, req.body);
-//         res.status(200).json(updatedPin)
-//     } catch (err) {
-//         res.status(400).send(err)
-//     }
-// };
+}
 
 // CREATE
 
@@ -75,9 +54,11 @@ async function create(req, res) {
 
 async function edit(req, res) {
     try {
-        const foundPin = await Pin.findByIdAndUpdate(req.params.id, req.params.body);
+        console.log('i am in the edit controller')
+        const foundPin = await Pin.findByIdAndUpdate(req.params.id, req.body);
         res.status(200).json(foundPin)
     } catch (err) {
+        console.log('edit controller is not working')
         res.status(400).send({ msg: err.message })
     }
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { editPin } from "../../utilities/pin-api";
 
-export default function EditPin() {
+export default function EditPin({ id }) {
     const [pin, setPin] = useState({
         picture: "",
         title: "",
@@ -20,10 +21,13 @@ export default function EditPin() {
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            console.log('Edit Handle submit worked');
-            const editPin = await editPin(pin);
-            setPin(editPin);
-            console.log('This is the edited Pin:', editPin);
+            console.log('Edit Handle submit');
+            console.log(id)
+            console.log(pin);
+            const updatePin = await editPin(id, pin);
+            console.log('i am here')
+            setPin(updatePin);
+            console.log('This is the edited Pin:', updatePin);
         } catch {
             setError({ error: "Pin not edited" });
         }
@@ -39,7 +43,9 @@ export default function EditPin() {
 
             <input value={pin.link} type='text' name='link' placeholder='Add a destination link' onChange={handleChange} />
 
-            <input type="submit" value={`Edit ${pin.title}`} placeholder={`Edit ${pin.title}`} />
+            &nbsp;
+
+            <input type="submit" value={`Edit Pin`} placeholder={`Edit ${pin.title}`} />
         </form>
     )
 }

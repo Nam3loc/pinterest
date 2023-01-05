@@ -10,6 +10,7 @@ import DeletePin from "../DeletePin/DeletePin";
 export default function MainBoard(props) {
 
     const [createdPins, setCreatedPins] = useState('');
+    // const pinId = props.pin.id;
 
     useEffect(function () {
         console.log('in useEffect')
@@ -21,40 +22,53 @@ export default function MainBoard(props) {
         console.log(createdPins)
     }, []);
 
-    return (
-        //     <Wrapper>
-        //         <Container className="mainboard_container">
-        //             <div>
-        //                 {createdPins[0].picture} <br /><br />
-        //                 {createdPins[0].title} < br /> <br />
-        //                 {createdPins[0].description} <br /><br />
-        //                 {createdPins[0].link}
-        //             </div>
-        //      </Container>
-        //      {/* <EditPin />
-        //      <DeletePin /> */}
-        //  </Wrapper>
+    const loaded = () => {
 
-        <div>
-            {
-            createdPins &&
-            createdPins.map((pin, idx) => {
-                <Link to='/pins'>
-                    <Pin pin={pin} />
-                </Link>
-                })
-            }
-            {createdPins[0].picture} <br /><br />
-            {createdPins[0].title} < br /> <br />
-            {createdPins[0].description} <br /><br />
-            {createdPins[0].link}
-            <br />
-            <br />
-            <EditPin />
-            <br />
-            <br />
-            <DeletePin />
-        </div>
+        return (
+            //     <Wrapper>
+            //         <Container className="mainboard_container">
+            //             <div>
+            //                 {createdPins[0].picture} <br /><br />
+            //                 {createdPins[0].title} < br /> <br />
+            //                 {createdPins[0].description} <br /><br />
+            //                 {createdPins[0].link}
+            //             </div>
+            //      </Container>
+            //      {/* <EditPin />
+            //      <DeletePin /> */}
+            //  </Wrapper>
+
+            <div>
+                {
+                createdPins &&
+                createdPins.map((pin, idx) => {
+                    <Link to='/pins'>
+                        <Pin pin={pin} />
+                    </Link>
+                    })
+                }
+                {createdPins[0].picture} <br /><br />
+                {createdPins[0].title} < br /> <br />
+                {createdPins[0].description} <br /><br />
+                {createdPins[0].link}
+                <br />
+                <br />
+                <EditPin id={createdPins[0]._id} />
+                <br />
+                <br />
+                <DeletePin id={createdPins[0]._id} />
+            </div>
+        )
+    }
+
+    const loading = () => {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
+
+    return (
+        createdPins ? loaded() : loading()
     )
 }
 

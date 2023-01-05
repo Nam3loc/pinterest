@@ -20,7 +20,6 @@ export default function Profile({ user, setUser }) {
     return (
         <div>
             <Header />
-            {/* <Logout user={user} setUser={setUser} /> */}
             <Link to="" onClick={handleLogout}>Log Out</Link>
             <ProfilePictureLogo />
             <h2>Insert Name Here</h2>

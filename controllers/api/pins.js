@@ -1,13 +1,13 @@
 const Pin = require("../../models/pin");
 
 module.exports = {
-  index,
-//   newPin,
-  deletePin,
-//   update,
-  create,
-  edit,
-  show
+    index,
+    //   newPin,
+    deletePin,
+    //   update,
+    create,
+    edit,
+    show
 };
 
 // I.N.D.U.C.E.S
@@ -16,10 +16,12 @@ module.exports = {
 // INDEX
 async function index(req, res) {
     try {
-      const homepage = await Pin.find({});
-      res.status(200).json(homepage);
+        console.log('i am in index controller');
+        const homepage = await Pin.find({});
+        console.log(homepage);
+        res.status(200).json(homepage);
     } catch (err) {
-      res.status(400).send(err);
+        res.status(400).send(err);
     }
 };
 
@@ -38,10 +40,10 @@ async function index(req, res) {
 
 async function deletePin(req, res) {
     try {
-      await Pin.findByIdAndDelete(req.params.id);
-      res.redirect('/pins');
+        await Pin.findByIdAndDelete(req.params.id);
+        res.redirect('/pins');
     } catch (err) {
-      res.status(400).send(err);
+        res.status(400).send(err);
     }
 };
 
@@ -59,11 +61,11 @@ async function deletePin(req, res) {
 // CREATE
 
 async function create(req, res) {
-    try{
+    try {
         const createPin = await Pin.create(req.body);
         console.log("create is working in pinCtrl");
         res.status(200).json(createPin)
-    } catch(err) {
+    } catch (err) {
         console.log("create is not working in pinCtrl");
         res.status(400).send(err)
     }
@@ -73,9 +75,9 @@ async function create(req, res) {
 
 async function edit(req, res) {
     try {
-        const foundPin = await Pin.findById(req.params.id);
+        const foundPin = await Pin.findByIdAndUpdate(req.params.id, req.params.body);
         res.status(200).json(foundPin)
-    }catch (err) {
+    } catch (err) {
         res.status(400).send({ msg: err.message })
     }
 };
@@ -86,7 +88,7 @@ async function show(req, res) {
     try {
         const foundPin = await Pin.findById(req.params.id);
         res.status(200).json(foundPin)
-    } catch(err) {
+    } catch (err) {
         res.status(400).send(err)
     }
 };

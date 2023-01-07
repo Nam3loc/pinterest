@@ -1,4 +1,4 @@
-import Pin from '../Pin';
+import Pin from '../Pin/Pin';
 import { Link } from 'react-router-dom';
 
 export default function Created() {

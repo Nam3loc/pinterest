@@ -3,8 +3,7 @@ import Header from '../../components/Header';
 import './Profile.module.css';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.css';
-import Pin from '../../components/Pin';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import Pin from '../../components/Pin/Pin';
 import * as userService from '../../utilities/users-service';
 
 // Material UI Imports
@@ -20,7 +19,6 @@ export default function Profile({ user, setUser }) {
     return (
         <div>
             <Header />
-            <Link to="" onClick={handleLogout}>Log Out</Link>
             <ProfilePictureLogo />
             <h2>Insert Name Here</h2>
             <p>Insert @username</p>
@@ -32,6 +30,10 @@ export default function Profile({ user, setUser }) {
 
                 <Link to='/profile/edit'>
                     <button>Edit Profile</button>
+                </Link>
+
+                <Link to="" onClick={handleLogout}>
+                    <button>Log Out</button>
                 </Link>
             </div>
 

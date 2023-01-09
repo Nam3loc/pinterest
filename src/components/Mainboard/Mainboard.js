@@ -4,6 +4,7 @@ import './Mainboard.module.css';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { indexPin } from "../../utilities/pin-api";
+import App from "../../App";
 
 export default function MainBoard(props) {
 
@@ -29,10 +30,19 @@ export default function MainBoard(props) {
                             {
                                 createdPins &&
                                 createdPins.map((pin, idx) => {
+                                    <App pin={pin} />
                                     return (
                                         <Link to={`/pins/${pin._id}`}>
-                                            <Pin key={idx} id={pin._id} picture={pin.picture} title={pin.title} description={pin.description} link={pin.link} />
-                                        </Link>
+                                            <Pin
+                                              key={idx}
+                                              id={pin._id}
+                                              picture={pin.picture}
+                                              title={pin.title}
+                                              description={pin.description}
+                                              link={pin.link}
+                                              state={{ pin }}
+                                            />
+                                          </Link>
                                     )
                                 })
                             }

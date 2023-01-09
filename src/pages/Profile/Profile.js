@@ -49,7 +49,6 @@ export default function Profile({ user, setUser }) {
                     <button>Boards</button>
                 </Link>
             </div>
-            <Pin />
         </div>
         
     )

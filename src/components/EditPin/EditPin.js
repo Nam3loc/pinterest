@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { editPin } from "../../utilities/pin-api";
+import styles from './EditPin.module.css';
+import Header from "../Header";
 
 export default function EditPin({ id }) {
     const [pin, setPin] = useState({
@@ -34,18 +36,23 @@ export default function EditPin({ id }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input value={pin.picture} type='text' name='picture' placeholder='Insert picture url' onChange={handleChange} />
+        <div>
+            <Header />
+            <div className={styles.wrapper}>
+                <form className={styles.form} onSubmit={handleSubmit}>
+                    <input className={styles.inputFields} value={pin.picture} type='text' name='picture' placeholder='Insert picture url' onChange={handleChange} />
 
-            <input value={pin.title} type='text' name='title' placeholder='Add your title' onChange={handleChange} />
+                    <input className={styles.inputFields} value={pin.title} type='text' name='title' placeholder='Add your title' onChange={handleChange} />
 
-            <input value={pin.description} type='text' name='description' placeholder='Tell everyone what your pin is about' onChange={handleChange} />
+                    <input className={styles.inputFields} value={pin.description} type='text' name='description' placeholder='Tell everyone what your pin is about' onChange={handleChange} />
 
-            <input value={pin.link} type='text' name='link' placeholder='Add a destination link' onChange={handleChange} />
+                    <input className={styles.inputFields} value={pin.link} type='text' name='link' placeholder='Add a destination link' onChange={handleChange} />
 
-            &nbsp;
+                    &nbsp;
 
-            <input type="submit" value={`Edit Pin`} placeholder={`Edit ${pin.title}`} />
-        </form>
+                    <input className={styles.button} type="submit" value={`Edit Pin`} placeholder={`Edit ${pin.title}`} />
+                </form>
+            </div>
+        </div>
     )
 }

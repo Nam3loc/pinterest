@@ -1,7 +1,12 @@
 .page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: white;
+    margin-top: 30px;
+    padding-bottom: 10px;
 }
 
 .titles {
@@ -12,6 +17,7 @@
 
 .picture {
     display: flex;
+    flex-direction: column;
 }
 
 .change {
@@ -27,6 +33,7 @@
 
 .nameInfo {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -35,6 +42,7 @@
     border-radius: 15px;
     width: 15vw;
     font-size: 14px;
+    border-color: black;
 }
 
 .aboutInput {
@@ -43,13 +51,19 @@
     width: 30vw;
     height: 20vh;
     font-size: 14px;
+
+    border: 2px solid black;
 }
 
-.inputbox {
+.inputBox {
     padding: 12px;
     border-radius: 15px;
     width: 30vw;
     font-size: 14px;
+}
+
+.footerButtonsContainer {
+    display: flex;
 }
 
 .footerButtons {

@@ -1,8 +1,21 @@
 // Imports
 import styles from './EditProfile.module.css';
 import Header from '../../components/Header';
+import { useState, useEffect } from 'react';
+import { getUser } from '../../utilities/users-service';
 
-export default function EditProfile() {
+export default function EditProfile({ picture, firstName, lastName,about, username }) {
+    const [editedProfile, setEditedProfile] = useState('');
+
+    useEffect(() => {
+        async function getUserInfo() {
+            const fetchingUserInfo = await getUser();
+            setEditedProfile(fetchingUserInfo);
+        }
+        getUserInfo();
+        console.log(getUserInfo);
+    }, []);
+
     return (
         <>
             <Header />
@@ -24,16 +37,13 @@ export default function EditProfile() {
                     <br /><br />
                     <p className={styles.titles}>Last name</p>
                     <input className={styles.inputName} type='text' placeholder="Last name" />
+                    <br /><br />
+                    <p className={styles.titles}>Username</p>
+                    <input className={styles.inputName} type='text' placeholder="Username" />
                 </div>
                 <br /><br />
                 <p className={styles.titles}>About</p>
                 <input className={styles.aboutInput} type='text' placeholder="Tell your story" />
-                <br /><br />
-                <p className={styles.titles}>Website</p>
-                <input className={styles.inputBox} type='text' placeholder="Add a link to drive traffic to your site" />
-                <br /><br />
-                <p className={styles.titles}>Username</p>
-                <input className={styles.inputBox} type='text' placeholder="Username" />
                 <br /><br />
                 <div className={styles.footerButtonsContainer}>
                     <button className={styles.footerButtons}>Reset</button>

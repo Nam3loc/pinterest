@@ -30,7 +30,6 @@ export default function MainBoard(props) {
                             {
                                 createdPins &&
                                 createdPins.map((pin, idx) => {
-                                    <App pin={pin} />
                                     return (
                                         <Link to={`/pins/${pin._id}`}>
                                             <Pin

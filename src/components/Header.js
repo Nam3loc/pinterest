@@ -142,6 +142,7 @@ const SearchBarWrapper = styled.div`
     form > input {
         background-color: transparent;
         border: none;
+        text-align: left;
         width: 100%;
         margin-left: 5px;
         font-size: 16px;

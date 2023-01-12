@@ -4,7 +4,14 @@
     text-align: center;
 }
 
-@media (min-width: 0px) and (max-width: 755px) {
+@media (min-width: 0px) and (max-width: 300px) {
+    .mainboard_container {
+        max-width: 300px;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 755px) {
     .mainboard_container {
         max-width: 504px;
         column-count: 2;

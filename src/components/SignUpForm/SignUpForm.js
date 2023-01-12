@@ -4,7 +4,9 @@ import styles from './SignUpForm.module.css';
 
 export default class SignUpForm extends Component {
   state = {
-    name: "",
+    picture: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirm: "",
@@ -43,8 +45,15 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form className={styles.form} autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input className={styles.inputBox} type="text" name="name" placeholder='Name' value={this.state.name} onChange={this.handleChange} required/>
+
+            <label>Profile Picture</label>
+            <input className={styles.inputBox} type='text' name='picture' placeholder='Insert picture url' value={this.state.picture} onChange={this.handleChange} />
+            <br />
+            <label>First Name</label>
+            <input className={styles.inputBox} type="text" name="name" placeholder='First Name' value={this.state.firstName} onChange={this.handleChange} required/>
+            <br />
+            <label>Last Name</label>
+            <input className={styles.inputBox} type="text" name="name" placeholder='Last Name' value={this.state.lastName} onChange={this.handleChange} required/>
             <br />
             <label>Email</label>
             <input className={styles.inputBox} type="email" name="email" placeholder='Email' value={this.state.email} onChange={this.handleChange} required/>

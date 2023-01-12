@@ -15,6 +15,10 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
 
+export function edit() {
+  return sendRequest(`${BASE_URL}/edit/:id`, 'PUT');
+}
+
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {

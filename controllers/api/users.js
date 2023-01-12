@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  edit
 }
 
 async function create(req, res) {
@@ -41,6 +42,15 @@ function checkToken(req, res) {
   // req.user will always be there for you when a token is sent
   console.log('req.user', req.user);
   res.json(req.exp);
+}
+
+async function edit(req, res) {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(user)
+  } catch(err) {
+    res.status(400).json(err)
+  }
 }
 
 

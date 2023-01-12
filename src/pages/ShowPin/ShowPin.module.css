@@ -73,6 +73,11 @@ main > .pageWrapper{
     padding: 0;
 }
 
+.picture {
+    width: 40vw;
+    height: 60vh;
+}
+
 .picInput {
     display: flex;
     flex-direction: column;
@@ -82,6 +87,25 @@ main > .pageWrapper{
     width: 40vw;
 }
 
+@media screen and (min-width: 1200px) {
+    .picInput {
+        height: 60%;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    .picInput {
+        height: 60%;
+    }
+  }
+  @media screen and (min-width: 1900px) {
+    .picture {
+        width: 30vw;
+    }
+    .picInput {
+        height: 80%;
+    }
+  }
+
 .descriptionWrapper {
     display: flex;
     flex-direction: column;
@@ -89,6 +113,11 @@ main > .pageWrapper{
     align-items: center;
     height: 40vh;
     width: 40vw;
+    word-break: break-all;
+}
+
+.descriptionWrapper > p {
+    width: 80%;
 }
 
 .buttons {

@@ -10,7 +10,13 @@ router.post("/", usersCtrl.create)
 // POST /api/users/login
 router.post("/login", usersCtrl.login)
 
+// POST /api/users/login
+router.post("/signup", usersCtrl.create)
+
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
+
+// PUT /api/users/edit/:id
+router.put('/edit/:id', usersCtrl.edit);
 
 module.exports = router;

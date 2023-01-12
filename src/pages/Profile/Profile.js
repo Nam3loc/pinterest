@@ -27,9 +27,9 @@ export default function Profile({ user, setUser }) {
                 }
 
                 <div className={styles.name}>
-                    <h2>First Name: {user.firstName}</h2>
-                    <br /><br />
-                    <h2>Last Name: {user.lastName}</h2>
+                    <h2>{user.firstName}</h2>
+                    &nbsp;
+                    <h2>{user.lastName}</h2>
                 </div>
 
                 <p>Username: {user.username}</p>

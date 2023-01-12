@@ -4,7 +4,7 @@ import EditPin from '../../components/EditPin/EditPin';
 import DeletePin from '../../components/DeletePin/DeletePin';
 import Header from '../../components/Header';
 import { IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { showPin } from '../../utilities/pin-api';
 import Pin from '../../components/Pin/Pin';
@@ -13,8 +13,10 @@ import Pin from '../../components/Pin/Pin';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import React from 'react';
 
-export default function ShowPin({ picture, title, description, link, id }) {
+export default function ShowPin({ picture, title, description, link }) {
     const [createdPin, setCreatedPin] = useState([]);
+
+    const { id } = useParams()
 
     useEffect(() => {
         async function getPin() {
@@ -50,8 +52,8 @@ export default function ShowPin({ picture, title, description, link, id }) {
                     {
                         createdPin && (
                             <div className={styles.infoWrapper}>
-                                <div className={styles.pinInput}>
-                                    <img src={createdPin.picture} alt={createdPin.title} />
+                                <div className={styles.picInput}>
+                                    <img className={styles.picture} src={createdPin.picture} alt={createdPin.title} />
                                 </div>
     
                                 <div className={styles.descriptionWrapper}>

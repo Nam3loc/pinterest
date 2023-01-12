@@ -23,7 +23,7 @@ const userSchema = new Schema({
     required: true
   },
   about: String,
-  username: {type: String, required: true}
+  username: {type: String}
 },
 {
   timestamps: true,

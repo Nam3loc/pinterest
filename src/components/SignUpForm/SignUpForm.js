@@ -7,6 +7,7 @@ export default class SignUpForm extends Component {
     picture: "",
     firstName: "",
     lastName: "",
+    username: "",
     email: "",
     password: "",
     confirm: "",
@@ -54,6 +55,9 @@ export default class SignUpForm extends Component {
             <br />
             <label>Last Name</label>
             <input className={styles.inputBox} type="text" name="lastName" placeholder='Last Name' value={this.state.lastName} onChange={this.handleChange} required/>
+            <br />
+            <label>Username</label>
+            <input className={styles.inputBox} type="text" name="username" placeholder='username' value={this.state.username} onChange={this.handleChange} />
             <br />
             <label>Email</label>
             <input className={styles.inputBox} type="email" name="email" placeholder='Email' value={this.state.email} onChange={this.handleChange} required/>

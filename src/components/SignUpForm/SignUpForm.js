@@ -50,10 +50,10 @@ export default class SignUpForm extends Component {
             <input className={styles.inputBox} type='text' name='picture' placeholder='Insert picture url' value={this.state.picture} onChange={this.handleChange} />
             <br />
             <label>First Name</label>
-            <input className={styles.inputBox} type="text" name="name" placeholder='First Name' value={this.state.firstName} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="text" name="firstName" placeholder='First Name' value={this.state.firstName} onChange={this.handleChange} required/>
             <br />
             <label>Last Name</label>
-            <input className={styles.inputBox} type="text" name="name" placeholder='Last Name' value={this.state.lastName} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="text" name="lastName" placeholder='Last Name' value={this.state.lastName} onChange={this.handleChange} required/>
             <br />
             <label>Email</label>
             <input className={styles.inputBox} type="email" name="email" placeholder='Email' value={this.state.email} onChange={this.handleChange} required/>

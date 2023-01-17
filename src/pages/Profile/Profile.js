@@ -4,42 +4,56 @@ import './Profile.module.css';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.css';
 import * as userService from '../../utilities/users-service';
+import { getUser } from '../../utilities/users-service';
+import { useState, useEffect } from 'react';
+import { findUserById } from '../../utilities/users-api';
 
 // Material UI Imports
 import ProfilePictureLogo from '../../components/ProfilePictureLogo';
 
 export default function Profile({ user, setUser }) {
+    const [profile, setProfile] = useState({});
+
     function handleLogout () {
         // Delegate to the users-service
         userService.logOut()
         setUser(null)
     }
 
+    useEffect(() => {
+        async function getUserInfo() {
+            const fetchingUserInfo = await findUserById(user._id);
+            setProfile(fetchingUserInfo);
+        }
+        getUserInfo();
+        console.log(getUserInfo);
+    }, []);
+
     return (
         <div>
             <Header />
             <div className={styles.wrapper}>
                 {
-                    user.picture ?
-                    <img src={user.picture} />
+                    profile.picture ?
+                    <img className={styles.profilePicture} src={profile.picture} />
                     :
                     <ProfilePictureLogo />
                 }
 
                 <div className={styles.name}>
-                    <h2>{user.firstName}</h2>
+                    <h2>{profile.firstName}</h2>
                     &nbsp;
-                    <h2>{user.lastName}</h2>
+                    <h2>{profile.lastName}</h2>
                 </div>
 
-                <p>Username: {user.username}</p>
+                <p>Username: {profile.username}</p>
 
                 <div className={styles.Profile}>
                     <Link to='/pins/new'>
                         <button>Share</button>
                     </Link>
 
-                    <Link to='/profile/edit'>
+                    <Link to={`/edit-profile/${profile._id}`}>
                         <button>Edit Profile</button>
                     </Link>
 

@@ -15,8 +15,12 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
 
-export function edit() {
-  return sendRequest(`${BASE_URL}/edit/:id`, 'PUT');
+export function edit(id, data) {
+  return sendRequest(`${BASE_URL}/edit-profile/${id}`, 'PUT', data);
+}
+
+export function findUserById(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'GET');
 }
 
 /*--- Helper Functions ---*/

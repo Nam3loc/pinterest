@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from './utilities/users-service';
 import AuthPage from './pages/AuthPage/AuthPage';
@@ -10,7 +10,6 @@ import Created from './pages/Created';
 import EditProfile from './pages/EditProfile/EditProfile';
 import ShowPin from './pages/ShowPin/ShowPin';
 import EditPin from './components/EditPin/EditPin';
-import { PinContext } from './PinContext'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -18,7 +17,6 @@ export default function App() {
 
   return (
     // <main className={styles.App}>
-    <PinContext.Provider value={{ pin, setPin }}>
       <main>
         { user ?
           <>
@@ -29,7 +27,7 @@ export default function App() {
               <Route path="/pins/:id" element={<ShowPin user={user} setUser={setUser} />} />
               <Route path="/pins/edit/:id" element={<EditPin user={user} setUser={setUser} />} />
               <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
-              <Route path="/profile/edit" element={<EditProfile user={user} setUser={setUser} />} />
+              <Route path="/edit-profile/:id" element={<EditProfile user={user} setUser={setUser} />} />
               <Route path="/pins/new" element={<NewPin user={user} setUser={setUser} />} />
               <Route path="/pins/board" element={<Board user={user} setUser={setUser} />} />
               <Route path="/pins/created" element={<Created user={user} setUser={setUser} />} />
@@ -41,6 +39,5 @@ export default function App() {
           <AuthPage setUser={setUser} />
         }
       </main>
-    </PinContext.Provider>
   );
 }

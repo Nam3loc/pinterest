@@ -43,3 +43,8 @@ a {
     align-items: center;
     padding-bottom: 30px;
 }
+
+.profilePicture {
+    width: 40vw;
+    height: 40vh;
+}

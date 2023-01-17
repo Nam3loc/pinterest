@@ -6,7 +6,8 @@ module.exports = {
   create,
   login,
   checkToken,
-  edit
+  edit,
+  findUserById
 }
 
 async function create(req, res) {
@@ -22,6 +23,15 @@ async function create(req, res) {
     // Client will check for non-2xx status code
     // 400 = Bad Request
     res.status(400).json(err);
+  }
+}
+
+async function findUserById(req, res) {
+  try {
+    const user = await User.findById(req.params.id)
+    res.status(200).json(user);
+  } catch(err) {
+    res.status(400).json(err)
   }
 }
 

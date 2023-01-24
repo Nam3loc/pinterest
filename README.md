@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Pinterest Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Pinterest Clone, a full-stack MERN (MongoDB, Express.js, React.js, Node.js) app that allows users to create, view and manage their own boards and pins. The project was created as a capstone project in a bootcamp and is a clone of the popular social media site Pinterest. The project was developed to showcase the developers skillset and interests in social media type of development.
 
-## Available Scripts
+## Deployment
 
-In the project directory, you can run:
+This project is deployed on [Render](https://render.com/) at the following link:
 
-### `npm start`
+https://pinterest-clone-5q1t.onrender.com/pins
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Wireframes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Pinterest-Wireframe](https://user-images.githubusercontent.com/99232536/212946864-3244e3b6-a27c-4914-8b32-4eea27dd9dda.png)
 
-### `npm test`
+## Features
+- Sign up/login functionality (with basic authorization)
+- Create, view, and manage boards and pins
+- CRUD functionality for boards and pins
+- Express validator to check user input
+- Express static middleware for handling paths
+- React Router for client-side routing
+- React Hooks for state management
+- Body parser for handling incoming JSON requests
+- CSS styling for a visually pleasing user interface
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies used
+- HTML, CSS, JavaScript
+- MongoDB - A document-oriented NoSQL database
+- Express.js - A framework for building web applications
+- React.js - A JavaScript library for building user interfaces
+- Node.js - A JavaScript runtime
 
-### `npm run build`
+### Models
+- User
+- Pin
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Controllers
+- Pins
+- User
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Routes
+- Pins
+- User
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## CRUD Operations
+The app provides the following CRUD operations:
 
-### `npm run eject`
+| Operation    | API route         | HTTP method |
+| ------------ | ----------------- | ----------- |
+| Fetch all pins | /api/pins         | GET         |
+| Create a pin  | /api/pins         | POST        |
+| Update a pin  | /api/pins/:id/edit | PUT         |
+| Delete a pin  | /api/pins/:id     | DELETE      |
+| Fetch a pin   | /api/pins/:id     | GET         |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can see the operation's routes and methods which will be used to handle and control data in the server side of the app.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To get started, you will need to have [Node.js](https://nodejs.org/) and [MongoDB](https://www.mongodb.com/) installed on your system.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository
+git clone https://github.com/yourusername/pinterest-clone.git
 
-## Learn More
+2. Install dependencies
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Start the server
+npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Visit http://localhost:3000 to view the app in your browser.
 
-### Code Splitting
+## Dependencies
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.1",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.5.0",
+    "react-scripts": "5.0.1",
+    "serve-favicon": "^2.5.0",
+    "web-vitals": "^2.1.4"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Troubleshooting
+If `npm run build` fails to minify, you can refer to the [troubleshooting section](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) of the Create React App documentation.

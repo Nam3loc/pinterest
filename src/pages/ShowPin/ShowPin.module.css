@@ -1,7 +1,7 @@
 main {
     background-color: #e9e9e9;
     width: 100%;
-    height: 99.7vh;
+    height: 100vh;
     margin: 0px;
     padding: 0px;
 }
@@ -25,8 +25,9 @@ main > .pageWrapper{
 .wrapper {
     background-color: white;
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
 
+    margin-top: 50px;
     padding: 40px 40px 0px;
     border-radius: 10px;
 }
@@ -118,6 +119,45 @@ main > .pageWrapper{
 
 .descriptionWrapper > p {
     width: 80%;
+    font-size: 2vw;
+}
+
+.descriptionWrapper > h2 {
+    width: 80%;
+    font-size: 2vw;
+}
+
+@media screen and (max-width: 420px) {
+    .descriptionWrapper > p {
+        width: 80%;
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .descriptionWrapper > p {
+        overflow: scroll;
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .descriptionWrapper > p {
+        overflow: scroll;
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .descriptionWrapper > p {
+        overflow: scroll;
+        font-size: 3vw;
+    }
+
+    .descriptionWrapper > h2 {
+        overflow: scroll;
+        font-size: 6vw;
+    }
 }
 
 .buttons {

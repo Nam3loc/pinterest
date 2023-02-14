@@ -14,7 +14,7 @@ export default function DeletePin({ id }) {
         setDeletedPin(
             ...deletedPin
         )
-        navigate(0);
+        navigate('/pins');
     }
 
     return (

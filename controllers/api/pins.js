@@ -55,7 +55,7 @@ async function create(req, res) {
 async function edit(req, res) {
     try {
         console.log('i am in the edit controller')
-        const foundPin = await Pin.findByIdAndUpdate(req.params.id, req.body);
+        const foundPin = await Pin.findByIdAndUpdate(req.params.id, req.body, {new: true});
         res.status(200).json(foundPin)
     } catch (err) {
         console.log('edit controller is not working')

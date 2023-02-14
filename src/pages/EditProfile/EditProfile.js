@@ -18,7 +18,7 @@ export default function EditProfile({ picture, firstName, lastName, about, usern
         username: ''
     });
 
-    const { id } = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
         async function getUserInfo() {

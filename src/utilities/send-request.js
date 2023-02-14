@@ -18,6 +18,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
       options.headers.Authorization = `Bearer ${token}`;
     }
     const res = await fetch(url, options);
+    console.log(res)
     if (res.ok) return res.json();
     throw new Error(`Request failed with status code: ${res.status}`);
   } catch (error) {
@@ -50,5 +51,5 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
 //   const res = await fetch(url, options);
 //   // res.ok will be false if the status code set to 4xx in the controller action
 //   if (res.ok) return res.json();
-//   throw new Error('Bad Request: in send-req');
+//   throw new Error('Bad Request');
 // }

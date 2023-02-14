@@ -66,10 +66,13 @@ export default function ShowPin({ picture, title, description, link }) {
                     }
     
                     <div className={styles.buttons}>
-                        <Link to='/pins/edit/:id'>
+                        <Link to={`/pins/edit/${id}`}>
                             <button>Edit Pin</button>
                         </Link>
-                        <DeletePin id={id} />
+                        
+                        <Link to={`/pins`}>
+                            <DeletePin id={id} />
+                        </Link>
                     </div>
                 </div>
             </div>

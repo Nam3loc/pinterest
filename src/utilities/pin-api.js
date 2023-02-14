@@ -18,7 +18,8 @@ export async function showPin(id) {
 
 export async function editPin(id, editedPin) {
     console.log('i am in the edit pin api')
-    return await sendRequest(`${BASE_URL}/${id}`, 'PUT', editedPin);
+    console.log(editedPin)
+    return await sendRequest(`${BASE_URL}/edit/${id}`, 'PUT', editedPin);
 }
 
 export async function deletePin(id) {

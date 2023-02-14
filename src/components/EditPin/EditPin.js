@@ -2,8 +2,12 @@ import { useState } from "react";
 import { editPin } from "../../utilities/pin-api";
 import styles from './EditPin.module.css';
 import Header from "../Header";
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function EditPin({ id }) {
+export default function EditPin() {
+    const navigate = useNavigate();
+
     const [pin, setPin] = useState({
         picture: "",
         title: "",
@@ -12,6 +16,8 @@ export default function EditPin({ id }) {
     });
     const [error, setError] = useState(false);
     const [form, setForm] = useState('');
+
+    const { id } = useParams();
 
     const handleChange = (evt) => {
         setPin({
@@ -25,14 +31,13 @@ export default function EditPin({ id }) {
         try {
             console.log('Edit Handle submit');
             console.log(id)
-            console.log(pin);
             const updatePin = await editPin(id, pin);
-            console.log('i am here')
             setPin(updatePin);
-            console.log('This is the edited Pin:', updatePin);
         } catch {
             setError({ error: "Pin not edited" });
         }
+
+        navigate('/pins');
     }
 
     return (

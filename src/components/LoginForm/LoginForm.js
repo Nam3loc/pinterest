@@ -41,6 +41,12 @@ return (
         <br />
         <br />
         <button className={styles.submit} type="submit">LOG IN</button>
+        <br />
+        <><p>Recruiter Log-In: recruiter@gmail.com</p></>
+        <><p>Recruiter Password: recruiter</p></>
+
+        {/* In progress */}
+        {/* <button className={styles.submit} type="submit">FULL EXPERIENCE</button> */}
       </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>

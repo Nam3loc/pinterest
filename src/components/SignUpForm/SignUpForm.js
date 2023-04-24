@@ -51,22 +51,22 @@ export default class SignUpForm extends Component {
             <input className={styles.inputBox} type='text' name='picture' placeholder='Insert picture url' value={this.state.picture} onChange={this.handleChange} />
             <br />
             <label>First Name</label>
-            <input className={styles.inputBox} type="text" name="firstName" placeholder='First Name' value={this.state.firstName} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="text" name="firstName" placeholder='First Name (required)' value={this.state.firstName} onChange={this.handleChange} required/>
             <br />
             <label>Last Name</label>
-            <input className={styles.inputBox} type="text" name="lastName" placeholder='Last Name' value={this.state.lastName} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="text" name="lastName" placeholder='Last Name (required)' value={this.state.lastName} onChange={this.handleChange} required/>
             <br />
             <label>Username</label>
-            <input className={styles.inputBox} type="text" name="username" placeholder='username' value={this.state.username} onChange={this.handleChange} />
+            <input className={styles.inputBox} type="text" name="username" placeholder='Username' value={this.state.username} onChange={this.handleChange} />
             <br />
             <label>Email</label>
-            <input className={styles.inputBox} type="email" name="email" placeholder='Email' value={this.state.email} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="email" name="email" placeholder='Email (required)' value={this.state.email} onChange={this.handleChange} required/>
             <br />
             <label>Password</label>
-            <input className={styles.inputBox} type="password" name="password" placeholder='Password' value={this.state.password} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="password" name="password" placeholder='Password (required)' value={this.state.password} onChange={this.handleChange} required/>
             <br />
             <label>Confirm</label>
-            <input className={styles.inputBox} type="password" name="confirm" placeholder='Confirm Password' value={this.state.confirm} onChange={this.handleChange} required/>
+            <input className={styles.inputBox} type="password" name="confirm" placeholder='Confirm Password (required)' value={this.state.confirm} onChange={this.handleChange} required/>
             <br />
             <br />
             <button className={styles.submit} type="submit" disabled={disable}>SIGN UP</button>

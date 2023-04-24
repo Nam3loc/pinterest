@@ -2,6 +2,8 @@
 
 Welcome to the Pinterest Clone, a full-stack MERN (MongoDB, Express.js, React.js, Node.js) app that allows users to create, view and manage their own boards and pins. The project was created as a capstone project in a bootcamp and is a clone of the popular social media site Pinterest. The project was developed to showcase the developers skillset and interests in social media type of development.
 
+Duration: 2 week long sprints (2 weeks)
+
 ## Deployment
 
 This project is deployed on [Render](https://render.com/) at the following link:
